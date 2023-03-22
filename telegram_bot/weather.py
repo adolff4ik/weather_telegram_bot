@@ -24,13 +24,13 @@ def get_weather(misto):
 
 
 def get_forecast(misto, i):
-    api_key = "c391c9305dfc0f78f2e9eb6516d65c87"
+    api_key = "YOUR_API_KEY"
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={misto}&appid={api_key}&units=metric"
 
     response_get = requests.get(url)
     response_json = response_get.json()
 
-
+    print(response_get.url)
 
     weather = response_json['list'][i]['weather'][0]['description']
     temp = response_json['list'][i]['main']['temp']
@@ -50,6 +50,3 @@ def get_forecast(misto, i):
 
 if __name__ == "__main__":
     get_weather(misto="london")
-
-
-
